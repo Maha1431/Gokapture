@@ -36,7 +36,7 @@ cd spreadsheet-app
 
 Using npm:
 
-npm install
+[Installation](npm install)
 
 # Running the Application
 Using npm:
