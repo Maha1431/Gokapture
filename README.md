@@ -1,14 +1,14 @@
 # Gokapture
-Spreadsheet App
+# SpreadSheet App
 This is a frontend application that mimics the functionality of a spreadsheet, built using React.js with Tailwind CSS and Zustand for state management. The application is designed to be responsive, performant, and user-friendly, with features like grid rendering, cell editing, data storage, cell formatting, data validation, search and filter, pagination, and undo/redo functionality.
 
-Table of Contents
-Features
-Technologies Used
-Project Setup
-Available Scripts
-License
-Features
+# Table of Contents
+# Features
+# Technologies Used
+# Project Setup
+# Available Scripts
+# License
+# Features
 Grid Rendering: Render a grid of 1000 cells with efficient performance.
 Cell Editing: Editable cells with real-time updates.
 Data Storage: State management using Zustand, with persistence within the session.
