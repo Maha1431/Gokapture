@@ -27,18 +27,18 @@ Ensure you have the following installed:
 
 Node.js (v14 or higher)
 npm
-Installation
+# Installation
 Clone the repository:
 
 [GitHub] (git clone https://github.com/Maha1431/Gokapture/tree/main)
 cd spreadsheet-app
-Install dependencies:
+# Install dependencies:
 
 Using npm:
 
 npm install
 
-Running the Application
+# Running the Application
 Using npm:
 
-npm run dev
+(npm start)
