@@ -1,41 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { Grid as VirtualGrid, AutoSizer } from 'react-virtualized';
+import React from 'react';
 import Cell from './Cell';
+import { useGridStore } from '../Store/UserStore';
 
 const Grid = () => {
-  const [rows, setRows] = useState(70);
+  const gridData = useGridStore((state) => state.gridData);
+  const searchQuery = useGridStore((state) => state.searchQuery);
+  const rows = 50;
   const cols = 20;
 
-  const loadMoreRows = () => {
-    setRows((prevRows) => prevRows + 20); // Load 20 more rows on each scroll
-  };
-
-  const isRowLoaded = ({ index }) => {
-    return index < rows;
-  };
+  const filteredCells = Object.keys(gridData).filter((key) =>
+    gridData[key].includes(searchQuery)
+  );
 
   return (
-    <AutoSizer>
-      {({ height, width }) => (
-        <VirtualGrid
-          cellRenderer={({ columnIndex, key, rowIndex, style }) => {
-            const cellId = rowIndex * cols + columnIndex;
-            return <Cell key={key} id={cellId} style={style} />;
-          }}
-          columnCount={cols}
-          columnWidth={100}
-          height={height}
-          rowCount={rows}
-          rowHeight={40}
-          width={width}
-          onScroll={({ clientHeight, scrollHeight, scrollTop }) => {
-            if (scrollHeight - scrollTop === clientHeight) {
-              loadMoreRows();
-            }
-          }}
-        />
-      )}
-    </AutoSizer>
+    <div className="grid grid-cols-20 gap-0.5">
+      {searchQuery
+        ? filteredCells.map((key) => <Cell key={key} id={key} />)
+        : [...Array(rows * cols)].map((_, idx) => (
+            <Cell key={idx} id={idx} />
+          ))}
+    </div>
   );
 };
 
